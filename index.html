@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: "JetBrains Mono";
+      }
+      input[type="checkbox"] {
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        border: 1px solid white;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+      }
+      input[type="checkbox"]:hover {
+        background-color: #A4FFAF;
+      }
+      input[type="checkbox"]:checked {
+        background-color: #A4FFAF;
+      }
+      input[type="checkbox"]:checked::after {
+        content: "✓";
+        color: black;
+        font-size: 10px;
+        font-weight: bold;
+        position: absolute;
+        top: -1px;
+        left: 3px;
+      }
+    </style>
+  </head>
+  <body class="bg-black flex flex-col items-center justify-center min-h-screen text-white">
+    <div class="flex flex-col items-center mt-24 gap-5 w-full max-w-md px-4">
+      <h1 class="text-[#817D92] text-2xl font-semibold text-center">Password Generator</h1>
+
+      <!-- Password input container -->
+      <div class="w-full relative">
+        <input
+          type="text"
+          class="w-full h-12 text-2xl pl-4 bg-[#24232C] text-white border border-neutral-800 focus:outline focus:outline-2 focus:outline-gray-500"
+          placeholder="Your password..."/>
+        <img
+          src="./images/Shape.svg"
+          alt="Copy password"
+          title="Copy password"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 cursor-pointer transition-transform duration-200 hover:scale-110"/>
+      </div>
+
+      <!-- Generate container -->
+      <div class="w-full bg-[#24232C] text-gray-100 flex flex-col gap-4 p-5">
+        <!-- Character length -->
+        <div class="flex flex-col gap-2">
+          <div class="flex justify-between items-center">
+            <label for="lengthRange" class="text-lg">Character Length</label>
+            <p class="text-green-300 font-bold text-2xl">10</p>
+          </div>
+          <input
+            id="lengthRange"
+            type="range"
+            min="0"
+            max="25"
+            value="10"
+            class="w-full accent-green-300 cursor-pointer"/>
+        </div>
+
+        <!-- Options -->
+        <div class="flex flex-col gap-3 mt-3">
+          <label class="flex items-center gap-3">
+            <input type="checkbox" checked />
+            <span>Include Uppercase Letters</span>
+          </label>
+          <label class="flex items-center gap-3">
+            <input type="checkbox" checked />
+            <span>Include Lowercase Letters</span>
+          </label>
+          <label class="flex items-center gap-3">
+            <input type="checkbox" checked />
+            <span>Include Numbers</span>
+          </label>
+          <label class="flex items-center gap-3">
+            <input type="checkbox" />
+            <span>Include Symbols</span>
+          </label>
+        </div>
+
+        <!-- Generate button -->
+        <div class="flex justify-center items-center gap-4 bg-green-300 text-black font-bold h-12 cursor-pointer transition duration-300 hover:bg-[#A4FFAF] mt-3">
+          <p>GENERATE</p>
+          <img src="./images/bx_arrow-to-left.svg" alt="Generate" class="w-5 h-5" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
